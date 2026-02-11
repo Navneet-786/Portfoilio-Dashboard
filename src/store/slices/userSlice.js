@@ -119,7 +119,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch(userSlice.actions.loginSuccess(data.user));
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
-    dispatch(userSlice.actions.loginFailed(error.response.data.message));
+    dispatch(userSlice.actions.loginFailed(error.response?.data?.message || "Login failed"));
   }
 };
 
@@ -132,7 +132,7 @@ export const getUser = () => async (dispatch) => {
     dispatch(userSlice.actions.loadUserSuccess(data.user));
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
-    dispatch(userSlice.actions.loadUserFailed(error.response.data.message));
+    dispatch(userSlice.actions.loadUserFailed(error.response?.data?.message || "Failed to load user"));
   }
 };
 
@@ -145,7 +145,7 @@ export const logout = () => async (dispatch) => {
     dispatch(userSlice.actions.logoutSuccess(data.message));
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
-    dispatch(userSlice.actions.logoutFailed(error.response.data.message));
+    dispatch(userSlice.actions.logoutFailed(error.response?.data?.message || "Logout failed"));
   }
 };
 
@@ -165,7 +165,7 @@ export const updatePassword =
       dispatch(userSlice.actions.clearAllErrors());
     } catch (error) {
       dispatch(
-        userSlice.actions.updatePasswordFailed(error.response.data.message)
+        userSlice.actions.updatePasswordFailed(error.response?.data?.message || "Update password failed")
       );
     }
   };
@@ -185,7 +185,7 @@ export const updateProfile = (data) => async (dispatch) => {
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
     dispatch(
-      userSlice.actions.updateProfileFailed(error.response.data.message)
+      userSlice.actions.updateProfileFailed(error.response?.data?.message || "Update profile failed")
     );
   }
 };

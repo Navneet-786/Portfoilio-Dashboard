@@ -8,6 +8,10 @@ export const InteractiveGridPattern = ({
     squares = [24, 24], // [x, y]
     className,
     squaresClassName,
+    numSquares,
+    maxOpacity,
+    duration,
+    repeatDelay,
     ...props
 }) => {
     const [hoveredSquare, setHoveredSquare] = useState(null);
