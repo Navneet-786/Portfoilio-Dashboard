@@ -72,7 +72,7 @@ export const getAllTimeline = () => async (dispatch) => {
   dispatch(timelineSlice.actions.getAllTimelineRequest());
   try {
     const response = await axios.get(
-      "http://localhost:4000/api/v1/timeline/getall",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/timeline/getall`,
       { withCredentials: true }
     );
     dispatch(
